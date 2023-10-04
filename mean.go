@@ -2,8 +2,6 @@ package gostats
 
 import (
 	"math"
-
-	"github.com/qzakwani/goslices"
 )
 
 func Mean[Z ~[]N, N number](n Z) float64 {
@@ -11,9 +9,9 @@ func Mean[Z ~[]N, N number](n Z) float64 {
 	if l == 0 {
 		return math.NaN()
 	}
-	var sum N = 0
-	sum = goslices.Sum(&n)
-	return float64(sum) / float64(l)
+	var sum float64 = 0
+	sum = Sum(n)
+	return sum / float64(l)
 }
 
 func GeometricMean[Z ~[]N, N number](n Z) float64 {
@@ -79,7 +77,7 @@ func MeanF(n []float64) float64 {
 		return math.NaN()
 	}
 	var sum float64 = 0
-	sum = goslices.Sum(&n)
+	sum = SumF(n)
 	return sum / float64(l)
 }
 
